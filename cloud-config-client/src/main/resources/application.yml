@@ -1,0 +1,16 @@
+spring:
+    application:
+        name: client-api
+    profiles:
+        # active: development
+        active: "product"
+        include:
+            - core
+    config:
+        import: optional:configserver:http://localhost:8888
+
+management:
+    endpoints:
+        web:
+            exposure:
+                include: refresh

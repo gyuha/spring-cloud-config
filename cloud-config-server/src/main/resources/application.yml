@@ -1,23 +1,27 @@
 server:
-  port: 8888
+    port: 8888
 
 spring:
-  application:
-    name: config-server
+    application:
+        name: config-server
 
-  profiles:
-    active: native
+    profiles:
+        active: native
 
-  ## Resources 폴더 사용
-  #    cloud:
-  #        config.server.native:
-  #            search-locations: classpath:/config
-
-  ## 특정 경로 사용
-  cloud:
-    config:
-      server:
-        native:
-          search-locations: file:////Users/gyuha/workspace/hec/config-server/config
-
-  ## Github 사용
+    ## Resources 폴더 사용
+    cloud:
+        config:
+            server:
+                git:
+                    uri: https://github.com/spring-cloud-samples/config-repo
+                    repos:
+                        simple: https://github.com/simple/config-repo
+                        special:
+                            pattern: special*/dev*,*special*/dev*
+                            uri: https://github.com/special/config-repo
+                        local:
+                            pattern: local*
+                            uri: file:/home/configsvc/config-repo
+                native:
+                    search-locations: classpath:/config
+                    # search-locations: file:////Users/gyuha/workspace/hec/config-server/config

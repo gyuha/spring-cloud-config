@@ -1,3 +1,4 @@
 rootProject.name = 'cloudconfig'
 
 include ':cloud-config-server'
+include ':cloud-config-client'
