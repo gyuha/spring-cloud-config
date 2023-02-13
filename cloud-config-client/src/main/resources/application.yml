@@ -1,6 +1,6 @@
 spring:
     application:
-        name: client-api
+        name: config-client
     profiles:
         # active: development
         active: "product"
